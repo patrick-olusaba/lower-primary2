@@ -1,0 +1,95 @@
+/* ══════════════════════════════════════
+   CBC Learn — Global Styles
+   ══════════════════════════════════════ */
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Fredoka+One&display=swap');
+
+:root {
+  /* Palette */
+  --bg:             #f0ebff;
+  --surface:        #ffffff;
+  --purple-darkest: #1e0f5c;
+  --purple-dark:    #2d1172;
+  --purple:         #5b2bbf;
+  --purple-mid:     #7c4fd4;
+  --purple-light:   #a78bfa;
+  --purple-pale:    #ede9fc;
+  --purple-ghost:   #f5f2fe;
+
+  /* Duolingo-style button press colors */
+  --purple-press:   #4a22a0;   /* darker bottom border = 3-D press shadow */
+  --green-press:    #16a34a;
+  --red-press:      #dc2626;
+
+  --text-heading:   #1e0f5c;
+  --text-body:      #3b2a7a;
+  --text-muted:     #7a6ea8;
+  --text-subtle:    #a89ed0;
+
+  /* Correct / Wrong — brighter Duolingo-style */
+  --correct-bg:     #d1fae5;
+  --correct-border: #22c55e;
+  --correct-text:   #15803d;
+  --wrong-bg:       #fee2e2;
+  --wrong-border:   #ef4444;
+  --wrong-text:     #b91c1c;
+
+  /* Typography */
+  --font-display: 'Fredoka One', cursive;
+  --font-body:    'Nunito', sans-serif;
+
+  /* Radii — slightly rounder, Duolingo-like */
+  --radius-sm:   10px;
+  --radius-md:   16px;
+  --radius-lg:   22px;
+  --radius-xl:   28px;
+  --radius-pill: 100px;
+
+  /* Shadows — flatter, Duolingo uses bottom-border trick not box-shadow */
+  --shadow-sm:  0 2px 8px rgba(91,43,191,0.08);
+  --shadow-md:  0 4px 18px rgba(91,43,191,0.13);
+  --shadow-lg:  0 8px 30px rgba(91,43,191,0.18);
+
+  /* Borders */
+  --border:      2px solid rgba(167,139,250,0.4);
+  --border-thin: 1px solid rgba(167,139,250,0.25);
+
+  --transition: all 0.15s ease;
+}
+
+/* ── Reset ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+:root { color-scheme: light; color: var(--text-body); background: var(--bg); }
+
+#root { min-height: 100vh; display: flex; flex-direction: column; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--text-body);
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  display: block;
+  place-items: unset;
+}
+
+button {
+  font-family: var(--font-body);
+  cursor: pointer;
+  outline: none;
+  border: none;
+  background: none;
+}
+button:focus-visible { outline: 3px solid var(--purple-light); outline-offset: 2px; }
+
+/* ── Keyframes ── */
+@keyframes fadeUp     { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
+@keyframes popIn      { 0%{opacity:0;transform:scale(0.82);} 65%{transform:scale(1.05);} 100%{opacity:1;transform:scale(1);} }
+@keyframes slideRight { from { opacity:0; transform:translateX(-18px); } to { opacity:1; transform:translateX(0); } }
+@keyframes bounceIn   { 0%{opacity:0;transform:scale(0.65);} 55%{transform:scale(1.08);} 80%{transform:scale(0.97);} 100%{opacity:1;transform:scale(1);} }
+@keyframes shake      { 0%,100%{transform:translateX(0);} 15%{transform:translateX(-7px);} 35%{transform:translateX(7px);} 55%{transform:translateX(-5px);} 75%{transform:translateX(5px);} }
+@keyframes pulse      { 0%,100%{transform:scale(1);} 50%{transform:scale(1.06);} }
+@keyframes float      { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-6px);} }
+@keyframes correctPop { 0%{transform:scale(1);} 40%{transform:scale(1.04);} 100%{transform:scale(1);} }
