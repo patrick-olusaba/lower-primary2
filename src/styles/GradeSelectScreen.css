@@ -185,8 +185,12 @@
 
 /* ── Responsive ── */
 @media (max-width: 420px) {
-    .lower-gs-card { border-radius: 22px; padding: 18px 16px 22px; }
-    .lower-gs-hero { height: 130px; }
+    .lower-gs-card { border-radius: 20px; padding: 16px 14px 20px; }
+    .lower-gs-hero { height: 120px; border-radius: 14px; }
+    .lower-gs-title { font-size: 1.5rem; }
+    .lower-gs-option { padding: 12px 14px; font-size: 1rem; }
+    .lower-gs-option-emoji { font-size: 1.5rem; }
+    .lower-gs-continue { padding: 15px; font-size: 1.05rem; }
 }
 
 @media (min-width: 768px) {

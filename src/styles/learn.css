@@ -72,6 +72,23 @@
   flex-wrap: wrap;
 }
 
+/* On mobile, score pill drops to its own row */
+@media (max-width: 600px) {
+  .lrn-header {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 8px;
+  }
+  /* breadcrumb truncates if too long */
+  .lrn-breadcrumb {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    min-width: 0;
+  }
+}
+
 /* ── Breadcrumb pill ── */
 .lrn-breadcrumb {
   display: inline-flex;
@@ -771,14 +788,112 @@
 .lrn-review-hint        { font-size: 0.76rem; font-weight: 700; color: var(--text-muted); line-height: 1.4; }
 
 /* ════════════════════════════════════════
-   RESPONSIVE — matching GradeSelectScreen
+   RESPONSIVE — MOBILE FIRST
    ════════════════════════════════════════ */
-@media (max-width: 420px) {
-  .lrn-inner { border-radius: 24px; padding: 22px 18px 26px; }
-  .lrn-read-hero { flex-direction: column; }
-  .lrn-feedback  { flex-wrap: wrap; }
-  .lrn-fb-next   { width: 100%; text-align: center; }
+
+/* ── Very small phones (≤380px) ── */
+@media (max-width: 380px) {
+  .lrn-inner { border-radius: 20px; padding: 18px 14px 22px; gap: 1rem; }
+  .lrn-select-title { font-size: 1.5rem; }
+  .lrn-q-text { font-size: 1rem; }
+  .lrn-opt { padding: 13px 14px; font-size: 0.9rem; gap: 10px; }
+  .lrn-opt-letter { width: 30px; height: 30px; font-size: 0.85rem; }
+  .lrn-read-title { font-size: 1.3rem; }
+}
+
+/* ── Mobile (≤600px) ── */
+@media (max-width: 600px) {
+  /* Screen & card */
+  .lrn-screen { padding: 12px; align-items: flex-start; }
+  .lrn-inner  { border-radius: 22px; padding: 20px 16px 24px; gap: 1.1rem; }
+
+  /* Header — stack breadcrumb below back+score on very small */
+  .lrn-header { gap: 8px; }
+  .lrn-breadcrumb { font-size: 0.78rem; padding: 3px 10px; }
+  .lrn-quiz-score-pill { font-size: 0.78rem; padding: 3px 10px; }
+
+  /* Read hero — stack vertically */
+  .lrn-read-hero { flex-direction: column; gap: 10px; }
+  .lrn-read-emoji {
+    width: 64px;
+    height: 64px;
+    font-size: 2rem;
+    border-radius: 16px;
+  }
+  .lrn-read-title { font-size: 1.4rem; }
+  .lrn-read-meta  { gap: 6px; }
+
+  /* Question card */
+  .lrn-q-card { padding: 20px 18px; border-radius: 18px; }
+  .lrn-q-num  { font-size: 3.5rem; }
+  .lrn-q-text { font-size: 1.05rem; line-height: 1.5; }
+
+  /* Answer options */
+  .lrn-opts { gap: 9px; }
+  .lrn-opt  { padding: 14px 16px; font-size: 0.95rem; gap: 11px; }
+  .lrn-opt-letter { width: 32px; height: 32px; font-size: 0.88rem; flex-shrink: 0; }
+  .lrn-opt-text { font-size: 0.95rem; line-height: 1.35; }
+
+  /* Feedback panel — stack vertically so nothing gets cut */
+  .lrn-feedback {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 14px 16px;
+  }
+  .lrn-fb-emoji { font-size: 1.6rem; }
+  .lrn-fb-next  { width: 100%; text-align: center; padding: 12px; font-size: 1rem; }
+
+  /* Progress dots — wrap if too many */
+  .lrn-section-progress { flex-wrap: wrap; gap: 5px; max-width: 160px; }
+
+  /* Section done banner */
+  .lrn-section-done-banner { padding: 16px; font-size: 1rem; }
+
+  /* Subject grid — 2 cols on mobile */
   .lrn-subject-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .lrn-subject-top  { height: 90px; }
+  .lrn-subject-icon { font-size: 2.4rem; }
+
+  /* Topic cards */
+  .lrn-topic-card { padding: 14px 16px; gap: 10px; }
+  .lrn-topic-emoji { font-size: 1.8rem; }
+  .lrn-topic-title { font-size: 1rem; }
+  .lrn-topic-summary { font-size: 0.8rem; }
+
+  /* Option buttons (term/grade select) */
+  .lrn-option-btn { padding: 15px 16px; font-size: 1.05rem; }
+  .lrn-option-emoji { font-size: 1.7rem; }
+
+  /* Continue / primary buttons */
+  .lrn-continue-btn { padding: 16px; font-size: 1.1rem; }
+  .lrn-start-btn    { padding: 16px; font-size: 1.1rem; }
+  .lrn-btn-primary  { padding: 16px; font-size: 1rem; }
+  .lrn-btn-outline  { padding: 14px; font-size: 0.95rem; }
+
+  /* Result screen */
+  .lrn-result-ring  { width: 110px; height: 110px; }
+  .lrn-result-pct   { font-size: 2.2rem; }
+  .lrn-result-badge { padding: 20px 16px; }
+  .lrn-result-badge-title { font-size: 1.8rem; }
+  .lrn-result-score-wrap  { gap: 1.5rem; }
+  .lrn-result-actions { grid-template-columns: 1fr 1fr; gap: 8px; }
+
+  /* Quiz progress label */
+  .lrn-quiz-progress-label { font-size: 0.72rem; }
+
+  /* Chips */
+  .lrn-chip { font-size: 0.75rem; padding: 4px 10px; }
+
+  /* Back button */
+  .lrn-back { font-size: 0.85rem; padding: 0.45rem 1rem; }
+}
+
+/* ── Tablet and up ── */
+@media (min-width: 601px) and (max-width: 767px) {
+  .lrn-screen { padding: 16px; }
+  .lrn-inner  { border-radius: 26px; padding: 28px 24px 32px; }
+  .lrn-subject-grid { grid-template-columns: repeat(4, 1fr); }
 }
 
 @media (min-width: 768px) {
@@ -799,7 +914,7 @@
     padding: 44px 40px 48px;
     border-radius: 40px;
   }
-  .lrn-option-btn  { padding: 22px 24px; font-size: 1.2rem; }
+  .lrn-option-btn   { padding: 22px 24px; font-size: 1.2rem; }
   .lrn-option-emoji { font-size: 2.2rem; }
 }
 
@@ -970,6 +1085,12 @@
 @media (max-width: 700px) {
   .lrn-toc { display: none; }
   .lrn-read-layout { max-width: 100%; }
+  .lrn-screen-wide { padding: 12px 12px 40px; }
+  .lrn-read-layout .lrn-inner {
+    border-radius: 22px;
+    padding: 20px 16px 24px;
+    min-height: auto;
+  }
 }
 
 @media (min-width: 1024px) {
